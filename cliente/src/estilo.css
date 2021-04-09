@@ -1,0 +1,83 @@
+.ajuste-logo{
+    width: 30px;
+    height: 30px;  
+    margin-left: 15px;  
+}
+
+.login-tamanho{
+    width: 250px;
+    height: 250px;
+    margin-top: 50px;
+}
+
+.rodape{
+    width: 100%;
+    bottom: 0px;
+    position: relative;
+}
+
+.card-tamanho{
+    width: 250px;
+    height: 400px;
+}
+
+.parallax-altura{
+    height: 200px;
+    width: 100%;
+}
+
+.nome-loja{
+    height: 250px;
+}
+
+
+.ajuste-logincampos{
+    width: 50%;
+    float: right;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.ajuste-loginlogo{
+    width: 50%;
+    float: left;
+    padding-right: 15%;
+}
+
+.ajuste-cadastro{
+    float: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+
+
+/*
+        FADE PARA TODOS OS NAVEGADORES!
+
+        DAQUI PARA BAIXO É APENAS NOVOS MODELOS DE FADE!
+*/
+
+    @-webkit-keyframes fade {
+    0% { opacity: 0; }
+    100% { opacity: 1; } 
+    }
+    @-moz-keyframes fade {
+    0% { opacity: 0;}
+    100% { opacity: 1; }
+    }
+    @-o-keyframes fade {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+    }
+    @keyframes fade {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+        }
+
+.fade {
+    -webkit-animation: fade 2s ease-in-out;
+    -moz-animation: fade 2s ease-in-out;
+    -o-animation: fade 2s ease-in-out;
+    animation: fade 2s ease-in-out;
+    }
