@@ -1,6 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Cadastro from './Cadastro';
+import ListaUsuarios from './ListaUsuarios';
 import Login from './Login';
 import Main from './Main';
 import Produtos from './Produtos';
@@ -15,6 +16,8 @@ function Routes(){
                 <Route path="/login" component={Login} />
                 <Route path="/adicionar" component={Cadastro} />
                 <Route path="/mostrausuario" component={Usuario} />
+                <Route path="/listausuarios" component={ListaUsuarios} />
+
             </Switch>
         </BrowserRouter>
     );

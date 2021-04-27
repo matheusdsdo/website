@@ -4,28 +4,20 @@ import axios from 'axios';
 
 function Cadastro(){
 
-    const[user, setUser] = useState("");
-    const[pass, setPass] = useState("");
-    const[email, setEmail] = useState("");
-
-    //const res = await axios.post('https:sample-endpoint.com/data')
-
-
+    const[user, setUser] = useState('')
+    const[pass, setPass] = useState('')
+    const[email, setEmail] = useState('')
 
     const adiciona = () => {
-        console.log('Usuario: ' , user)
-        console.log('Senha: ' , pass)
-        console.log('E-Mail: ' , email)
-
-        axios.post('https://localhost:3001/adicionar', {
-            Nome: user,
-            Senha: pass,
-            Email: email
+        axios.post('http://localhost:3001/adicionar', {
+            user: user,
+            pass: pass,
+            email: email,  
           })
-          .then(function (response) {
-            console.log(response);
+          .then(() => {
+              console.log('Sucesso!')
+              window.location.href = '/Login'
           })
-
     };
 
     return(
@@ -41,7 +33,7 @@ function Cadastro(){
                                    setUser(event.target.value);
                                }} 
                                /></p>
-                                <label for="user">Usuario</label>
+                                <label htmlFor="user">Usuario</label>
                             </div>
                             </div>
                             <div className="ajuste-cadastro">
@@ -51,27 +43,27 @@ function Cadastro(){
                                     setPass(event.target.value);
                                 }}
                                 /></p>
-                                <label for="pass">Senha</label>
+                                <label htmlFor="pass">Senha</label>
                             </div>
                             </div>
                             <div className="ajuste-cadastro">
                             <div className="input-field col s12">
                                 <p><input id="rpass" type="password" className="validate"/></p>
-                                <label for="rpass">Confirmar senha</label>
+                                <label htmlFor="rpass">Confirmar senha</label>
                             </div>
                             </div>
                             <div className="ajuste-cadastro">
-                            <div class="input-field col s12">
-                                <p><input id="email" type="email" id="" class="validate"
+                            <div className="input-field col s12">
+                                <p><input id="email" type="email" id="" className="validate"
                                 onChange={(event) => {
                                     setEmail(event.target.value);
                                 }}
                                 /></p>
-                                <label for="email">E-mail</label>
+                                <label htmlFor="email">E-mail</label>
                             </div>
                             </div>
-                            <p><a href="/login" className="waves-effect waves-light btn grey black-text"><i class="material-icons left">person</i>Fazer login</a></p>
-                            <p><a onClick={adiciona} className="waves-effect waves-light btn grey black-text" id="registrar"><i class="material-icons left">folder_shared</i>Cadastrar</a></p>
+                            <p><a href="/login" className="waves-effect waves-light btn grey black-text"><i className="material-icons left">person</i>Fazer login</a></p>
+                            <p><a onClick={adiciona} className="waves-effect waves-light btn grey black-text" id="registrar"><i className="material-icons left">folder_shared</i>Cadastrar</a></p>
                         </div>
                     </div>
                 </div>

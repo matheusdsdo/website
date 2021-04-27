@@ -23,7 +23,7 @@ function Login(){
                         </div>
                         </div>
                             <a className="waves-effect waves-light btn grey black-text"><i class="material-icons left">person</i>Login</a>
-                            <a href="/adicionarcontato" className="waves-effect waves-light btn grey black-text"><i class="material-icons left">folder_shared</i>Cadastrar</a>
+                            <a href="/adicionar" className="waves-effect waves-light btn grey black-text"><i class="material-icons left">folder_shared</i>Cadastrar</a>
                     </div>
                 </div>
             </div>

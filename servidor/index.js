@@ -3,12 +3,6 @@ const app = express();
 const mysql = require('mysql');
 const cors = require("cors");
 
-app.listen(3001, () => {
-    console.log("Servidor rodando na porta 3001");
-});
-
-app.use(cors());
-
 const db = mysql.createConnection({
     user: 'root',
     host: 'localhost',
@@ -16,27 +10,22 @@ const db = mysql.createConnection({
     database: 'bancosite'
 });
 
-
-var bodyParser = require('body-parser')
-app.use(bodyParser.urlencoded({
-    extended: true
-  })); 
+app.use(cors());
+app.use(express.json())
 
 app.post("/" , (req, res) => {
-    console.log(req)
-    res.render('No barra');
+
 })
 
 app.post('/adicionar', (req, res) => {
-    const user = req.body.Nome;
-    const pass = req.body.Senha;
-    const mail = req.body.Email;
-    console.log(user,pass,mail)
-    //console.log(req)
-    //console.log(res)
+    const usuario = req.body.user;
+    const senha = req.body.pass;
+    const emails = req.body.email;
+    console.log(usuario,senha,emails)
+    res.send("Inserido!")
 
- /*   db.query('insert into usuario (usuario, senha, email) values (?,?,?)',
-     [usuario, senha, email],
+    db.query('insert into usuario (usuario, senha, email) values (?,?,?)',
+     [usuario, senha, emails],
      (err, result) => {
          if(err){
              console.log('RESULTADO: ' , result);
@@ -45,6 +34,33 @@ app.post('/adicionar', (req, res) => {
             res.send("Inserido!");
          }
      }
-     ); */
+     );
 });
+
+app.get('/listausuarios' , (req, res) => {
+    db.query('select * from usuario' , (err, result) => {
+        if(err){
+            console.log(err)
+        } else {
+            res.send(result)
+        }
+    })
+})
+
+app.delete('/deletausuario/:id' , (req, res) => {
+    const id = req.params.id;
+    console.log('id do meliante ',id)
+    db.query("delete from usuario where codigo=?",id,(err,result) => {
+        if(err){
+            console.log(err)
+        } else {
+            res.send(result)
+    }        
+    })
+})
+
+app.listen(3001, () => {
+    console.log("Servidor rodando na porta 3001");
+});
+
 
