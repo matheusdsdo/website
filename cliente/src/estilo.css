@@ -30,7 +30,6 @@
     height: 250px;
 }
 
-
 .ajuste-logincampos{
     width: 50%;
     float: right;
@@ -48,6 +47,10 @@
     float: center;
     padding-top: 50px;
     padding-bottom: 50px;
+}
+
+.centralizar{
+    float: center;
 }
 
 
@@ -80,4 +83,11 @@
     -moz-animation: fade 2s ease-in-out;
     -o-animation: fade 2s ease-in-out;
     animation: fade 2s ease-in-out;
+    }
+
+.fade-curto {
+    -webkit-animation: fade 1s ease-in-out;
+    -moz-animation: fade 1s ease-in-out;
+    -o-animation: fade 1s ease-in-out;
+    animation: fade 1s ease-in-out;
     }

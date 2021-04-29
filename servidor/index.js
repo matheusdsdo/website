@@ -40,7 +40,18 @@ app.post('/adicionar', (req, res) => {
 app.get('/listausuarios' , (req, res) => {
     db.query('select * from usuario' , (err, result) => {
         if(err){
-            console.log(err)
+            console.log('Erro no listar: ',err)
+        } else {
+            res.send(result)
+        }
+    })
+})
+
+app.get('/selecionausuario/:id' , (req,res) => {
+    const id = req.params.id
+    db.query('select * from usuario where id=?',id,(err,result) => {
+        if(err){
+            console.log('Erro no selecionar um unico usuario: ', err)
         } else {
             res.send(result)
         }
@@ -57,6 +68,23 @@ app.delete('/deletausuario/:id' , (req, res) => {
             res.send(result)
     }        
     })
+})
+
+app.put('/updateusuario' , (req,res) => {
+    const id = req.body.codigo;
+    const user = req.body.usuario;
+    const senha = req.body.senha;
+    const email = req.body.email;
+    console.log(id,user,senha,email)
+   /* db.query('update usuario set usuario=? , senha=? , email=? where codigo=?'),
+    [user,senha,email, id],
+    (err, result) => {
+        if(err){
+            console.log()
+        } else {
+            res.send(result)
+       } }*/
+    
 })
 
 app.listen(3001, () => {
